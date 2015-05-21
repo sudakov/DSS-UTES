@@ -1,0 +1,79 @@
+// dsspref.odl : type library source for utes.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (utes.tlb).
+
+[ uuid(C8870363-7B2A-11D2-B7A1-A7B00D604327), version(1.0) ]
+library DSS_INFO
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CDssPref
+	
+	[ uuid(C8870361-7B2A-11D2-B7A1-A7B00D604327) ]
+	dispinterface IDssPref
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CDssPref)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CDssPref)
+			[id(1)] VARIANT GetCriterionName(short index);
+			[id(2)] short GetCriterionNumber();
+			[id(3)] void SetCriterionValue(short index, VARIANT value);
+			[id(4)] double GetPreferenceValue();
+			[id(5)] short Initialize();
+			[id(6)] double GetCriterionValue(short Index);
+			[id(7)]	void TestArray2(VARIANT* A1);
+			[id(8)] short GetCriterionInfo(short index, short* type, VARIANT* name, VARIANT* description);
+			[id(9)] short GetGradation(short index, short i, VARIANT* grad);
+			[id(10)] short GetCriterionScaleType(short index, short* type);
+			[id(11)] short IsAllPref();
+			[id(12)] short GetCriterionParent(short index);
+			[id(13)] short GetPreferenceValueEx(double* v);
+			[id(14)] short GetCriterionValueEx(short index, double* v);
+			[id(15)] short SetCriterionValueEx(short index, const VARIANT v);
+			[id(16)] short GetMinMaxDir(short index, double* min, double* max, short* dir);
+			[id(17)] short OpenFile(BSTR name);
+			[id(18)] VARIANT CreateVariant(BSTR s);
+			[id(19)] short GetCriterionInfoPB(short index, short* type, BSTR* name, BSTR* description);
+			[id(20)] short GetGradationPB(short index, short i, BSTR* grad);
+			[id(21)] void Visible(boolean bFlag);
+			[id(22)] short SaveFile(BSTR lpszFileName);
+			[id(23)] short NewFile();
+			[id(24)] short LoadCriterionPB(short type, BSTR name, BSTR description, double max_val, double min_val, short direction);
+			[id(25)] short SetCriterionArgPB(short index_pr, short index_ch);
+			[id(26)] short SetCriterionMethod(short index, short index_meth);
+			[id(27)] short UpdateUTESView();
+			[id(28)] short LoadScalePB(short index, short sc_type);
+			[id(29)] short SetCriterionGradation(short index, BSTR lpsz_grad);
+			[id(30)] BSTR GetDocPath();
+			[id(31)] short GetGradationFromDouble(short index, double number, BSTR* lp_grad);
+			[id(32)] short DeleteAll();
+			[id(33)] short DeleteCriterion(short index);
+			[id(34)] short GetMinMaxBest(short index, double* min_value, double* max_value, double* best_value);
+			[id(35)] short SetHWND(long hwnd);
+			[id(36)] short SetCriterionName(short index, BSTR Name);
+			[id(37)] long GetCriterionIndex(BSTR Name);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CDssPref
+	
+	[ uuid(C8870362-7B2A-11D2-B7A1-A7B00D604327) ]
+	coclass DssPref
+	{
+		[default] dispinterface IDssPref;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
